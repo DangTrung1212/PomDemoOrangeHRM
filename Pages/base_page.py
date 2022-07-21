@@ -46,5 +46,12 @@ class BasePage:
         select.select_by_visible_text(element_text)
 
     def get_current_url(self):
-        time.sleep(5)
+        self.implicitly_wait()
         return str(self.driver.current_url)
+
+    def select_checkbox(self, by_locator, nth):
+        """Get a list of checkbox elements then select the nth checkbox
+        nth : integer
+        """
+        list_of_checkbox = WebDriverWait(self.driver, 10).until((EC.visibility_of_all_elements_located(by_locator)))
+        list_of_checkbox.get(nth).click()

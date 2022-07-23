@@ -6,9 +6,9 @@ from Test.Base_Test import BaseTest
 class Test_AddUserPage(BaseTest):
     def test_add_user(self):
         # Login in to the website first
-        login = LoginPage(self.driver)
-        login.login()
-        login.implicitly_wait()
+        login_page = LoginPage(self.driver)
+        login_page.login()
+        login_page.implicitly_wait()
         # Navigate to the adding user page
         add_user_page = AddUserPage(self.driver)
         # Fill all the fields
